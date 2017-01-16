@@ -1,45 +1,70 @@
 {
-    "swagger": "2.0",
-    "info": {
-        "version": "0.0.0",
-        "title": "<enter your title>"
-    },
-    "paths": {
-        "/persons": {
-            "get": {
-                "description": "Gets `Person` objects.\nOptional query param of **size** determines\nsize of returned array\n",
-                "parameters": [
-                    {
-                        "name": "size",
-                        "in": "query",
-                        "description": "Size of array",
-                        "required": true,
-                        "type": "number",
-                        "format": "double"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Successful response",
-                        "schema": {
-                            "title": "ArrayOfPersons",
-                            "type": "array",
-                            "items": {
-                                "title": "Person",
-                                "type": "object",
-                                "properties": {
-                                    "name": {
-                                        "type": "string"
-                                    },
-                                    "single": {
-                                        "type": "boolean"
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "NEM NIS API",
+    "description": "TODO: Add Description",
+    "license": {
+      "name": "GPL v3",
+      "url": ""
     }
+  },
+  "host": "127.0.0.1:7890",
+  "basePath": "/",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/heartbeat": {
+      "get": {
+        "description": "TODO: Add Description",
+        "tags": [
+          "Misc"
+        ],
+        "operationId": "http://127.0.0.1:7890/heartbeat",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "security": [],
+        "x-unitTests": [
+          {
+            "request": {
+              "method": "GET",
+              "uri": "/heartbeat"
+            },
+            "expectedResponse": {
+              "x-allowExtraHeaders": true,
+              "x-bodyMatchMode": "NONE",
+              "x-arrayOrderedMatching": false,
+              "x-arrayCheckCount": false,
+              "x-matchResponseSchema": true,
+              "headers": {}
+            },
+            "x-testShouldPass": true,
+            "x-testEnabled": true,
+            "x-testName": "http://127.0.0.1:7890/heartbeat",
+            "x-testDescription": "TODO: Add Description"
+          }
+        ],
+        "x-operation-settings": {
+          "CollectParameters": false,
+          "AllowDynamicQueryParameters": false,
+          "AllowDynamicFormParameters": false,
+          "IsMultiContentStreaming": false
+        }
+      }
+    }
+  }
 }
