@@ -8,6 +8,7 @@ NEM is a blockchain project which caters to much more than only handling it's na
 
 More info:
 https://www.nem.io/
+
 http://bob.nem.ninja/docs/#introduction
 
 
