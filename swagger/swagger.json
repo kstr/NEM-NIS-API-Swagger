@@ -34,7 +34,14 @@
         "parameters": [],
         "responses": {
           "200": {
-            "description": ""
+            "description": "",
+            "schema": {
+              "$ref": "#/definitions/Http:~1~1127.0.0.1:7890~1heartbeatresponse"
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "schema": {}
           }
         },
         "security": [],
@@ -46,11 +53,20 @@
             },
             "expectedResponse": {
               "x-allowExtraHeaders": true,
-              "x-bodyMatchMode": "NONE",
+              "x-bodyMatchMode": "RAW",
               "x-arrayOrderedMatching": false,
               "x-arrayCheckCount": false,
               "x-matchResponseSchema": true,
-              "headers": {}
+              "headers": {
+                "Access-Control-Allow-Headers": "Content-Type",
+                "Access-Control-Allow-Origin": "*",
+                "Content-Encoding": "gzip",
+                "Content-Type": "application/json",
+                "Server": "Jetty(9.2.11.v20150529)",
+                "Transfer-Encoding": "chunked",
+                "Vary": "Accept-Encoding, User-Agent"
+              },
+              "body": "{\"code\":1,\"type\":2,\"message\":\"ok\"}\r\n"
             },
             "x-testShouldPass": true,
             "x-testEnabled": true,
@@ -65,6 +81,30 @@
           "IsMultiContentStreaming": false
         }
       }
+    }
+  },
+  "definitions": {
+    "Http://127.0.0.1:7890/heartbeatresponse": {
+      "title": "http://127.0.0.1:7890/heartbeatResponse",
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "type": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "code",
+        "type",
+        "message"
+      ]
     }
   }
 }
